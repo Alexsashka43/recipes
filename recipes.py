@@ -25,11 +25,10 @@ def get_shop_list_by_dishes(dishes, person_count):
         if dish_name in cook_book:
             for ingredients in cook_book[dish_name]:
                 if ingredients['ingredient_name'] in shoplist:
-                    shoplist[ingredients['ingredient_name']]['quantity'] += int((ingredients['quantity']) * person_count)
+                    shoplist[ingredients['ingredient_name']]['quantity'] += int(ingredients['quantity']) * person_count
                 else:
                     shoplist[ingredients['ingredient_name']] = {'measure': ingredients['measure'], 'quantity': int(ingredients['quantity']) * person_count}
         else:
             print('Такого блюда нет')
     return shoplist
-print(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2))
-
+print(get_shop_list_by_dishes(['Омлет', 'Омлет', 'Омлет'], 2))
